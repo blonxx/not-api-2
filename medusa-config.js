@@ -43,15 +43,31 @@ const STORE_CORS = process.env.STORE_CORS || "http://localhost:8000";
 const plugins = [
   `medusa-fulfillment-manual`,
   `medusa-payment-manual`,
-  // Uncomment to add Stripe support.
-  // You can create a Stripe account via: https://stripe.com
-  // {
-  //   resolve: `medusa-payment-stripe`,
-  //   options: {
-  //     api_key: STRIPE_API_KEY,
-  //     webhook_secret: STRIPE_WEBHOOK_SECRET,
-  //   },
-  // },
+
+    /* {
+       resolve: `medusa-payment-stripe`,
+       options: {
+         api_key: process.env.STRIPE_API_KEY,
+         webhook_secret: process.env.STRIPE_WEBHOOK_SECRET,
+       },
+     },	*/     
+     {
+   	resolve: `medusa-file-minio`,
+    	options: {
+        endpoint: process.env.MINIO_ENDPOINT,
+        bucket: process.env.MINIO_BUCKET,
+        access_key_id: process.env.MINIO_ACCESS_KEY,
+        secret_access_key: process.env.MINIO_SECRET_KEY,
+       },
+     },
+  /*   {	
+	resolve: `medusa-plugin-sendgrid`,
+	options: {
+	api_key: process.env.SENDGRID_API_KEY,
+  	from: "akeno@akeno.pl",
+	order_placed_template:"d-7d7d2f67ad3d4025930c7093271f9984",		
+       },
+     },	*/     
 ];
 
 module.exports = {
