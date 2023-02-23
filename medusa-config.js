@@ -43,17 +43,7 @@ const STORE_CORS = process.env.STORE_CORS || "http://localhost:8000";
 const plugins = [
   `medusa-fulfillment-manual`,
   `medusa-payment-manual`,
-        {
-          resolve: `medusa-file-s3`,
-          options: {
-              s3_url: process.env.MINIO_ENDPOINT,
-              bucket: process.env.MINIO_BUCKET,
-              region: 'pl-rack-1',
-              access_key_id: process.env.MINIO_ACCESS_KEY,
-              secret_access_key: process.env.MINIO_ACCESS_KEY,
-          },
-        },
-    /* {
+{
        resolve: `medusa-payment-stripe`,
        options: {
          api_key: process.env.STRIPE_API_KEY,
@@ -70,9 +60,8 @@ const plugins = [
         private_bucket: process.env.MINIO_BUCKET,
         private_access_key_id: process.env.MINIO_ACCESS_KEY,
         private_secret_access_key: process.env.MINIO_ACCESS_KEY,
-        private_bucket: process.env.MINIO_PRIVATE_BUCKET,
        },
-     },*/   
+     },
   /*   {	
 	resolve: `medusa-plugin-sendgrid`,
 	options: {
