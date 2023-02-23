@@ -59,7 +59,7 @@ const plugins = [
         access_key: process.env.MINIO_SECRET_KEY,
         private_bucket: process.env.MINIO_BUCKET,
         private_access_key_id: process.env.MINIO_ACCESS_KEY,
-        private_secret_access_key: process.env.MINIO_ACCESS_KEY,
+        private_secret_access_key: process.env.MINIO_SECRET_KEY,
        },
      },
   /*   {	
