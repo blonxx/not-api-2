@@ -49,19 +49,17 @@ const plugins = [
          api_key: process.env.STRIPE_API_KEY,
          webhook_secret: process.env.STRIPE_WEBHOOK_SECRET,
        },
-     },	  
-     {
-   	resolve: `medusa-file-minio`,
-    	options: {
-        endpoint: process.env.MINIO_ENDPOINT,
-        bucket: process.env.MINIO_BUCKET,
-        key_id: process.env.MINIO_ACCESS_KEY,
-        access_key: process.env.MINIO_SECRET_KEY,
-        private_bucket: process.env.MINIO_BUCKET,
-        private_access_key_id: process.env.MINIO_ACCESS_KEY,
-        private_secret_access_key: process.env.MINIO_SECRET_KEY,
-       },
      },
+     {
+      resolve: `medusa-payment-paypal`,
+      options: {
+        sandbox: process.env.PAYPAL_SANDBOX,
+        client_id: process.env.PAYPAL_CLIENT_ID,
+        client_secret: process.env.PAYPAL_CLIENT_SECRET,
+        auth_webhook_id: process.env.PAYPAL_AUTH_WEBHOOK_ID,
+      },
+    },	  
+
   /*   {	
 	resolve: `medusa-plugin-sendgrid`,
 	options: {
